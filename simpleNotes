@@ -1,0 +1,3 @@
+Pygame represents images as Surface Objects. The display.set_mode() function creates a new surface object 
+that represents the actual displayed graphics. Any drawing you do to this Surface will become on the monitor.
+

@@ -1,16 +1,27 @@
 import pygame 
+from Images import *
 
-pygame.init()
 
-display = pygame.display.set_mode((800, 600))
-pygame.display.update()
+#Constantes
+game_is_running = False
+WIDTH = 1100
+HEIGHT = 700
+Window = None
+Surface = None
+CULEBRITA = pygame.image_load("Snake.png")
+CULEBRITA_RECT = CULEBRITA.get_rect()
 
-open = True
+def inicializa_ventana():    
+    pygame.init()
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            open = False
+    Window = pygame.display.set_mode((WIDTH, HEIGHT))
+    Window = pygame.display.update()
+    return Window
 
-pygame.quit()
-quit()
+  
+def main():
+    inicializa_ventana()
+
+
+if __name__ == "__main__":
+    main()
