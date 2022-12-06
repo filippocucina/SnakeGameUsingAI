@@ -1,3 +1,15 @@
 Pygame represents images as Surface Objects. The display.set_mode() function creates a new surface object 
 that represents the actual displayed graphics. Any drawing you do to this Surface will become on the monitor.
 
+Drawing of images is handled by the Surface.blit() method. A blit basically means copying pixel colors from one 
+image to another. We pass the blit method a source Surface to copy from, and a position to place the source onto 
+the destination.
+
+Para usar Variables Constantes, debes usar la palabra reservada global
+EX: 
+		date = '10-07-2001'
+
+		def get_date():
+			global date
+			date = '10-07-2001'
+				
