@@ -12,4 +12,3 @@ EX:
 		def get_date():
 			global date
 			date = '10-07-2001'
-				

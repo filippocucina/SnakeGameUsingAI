@@ -1,4 +1,5 @@
 import pygame
+import gameObjects
 
 
 #--------------------------------------------
@@ -13,8 +14,12 @@ Surface = None
 
 def inicializa_ventana():    
     pygame.init()
+    pygame.display.init()
+
+    global Window
 
     Window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+    pygame.display.set_caption("Snake")
     pygame.display.update()
     return Window
 
@@ -30,9 +35,17 @@ def update():
 def render():
     print("Aqui va el Rendering")
 
+    pygame.display.flip()
+    
+
+def destroy_window():
+    pygame.quit()
+    quit()
+
 
 def main():
     global game_is_running
+
     game_is_running = inicializa_ventana()
 
 
@@ -42,8 +55,7 @@ def main():
         render()
            
 
-    pygame.quit()
-    quit()
+    destroy_window()
 
 
 if __name__ == "__main__":
