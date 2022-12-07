@@ -37,10 +37,11 @@ def main():
 
 
     while game_is_running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT():
-                game_is_running = False
-            
+        process_input()
+        update()
+        render()
+           
+
     pygame.quit()
     quit()
 
