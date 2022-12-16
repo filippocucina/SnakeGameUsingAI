@@ -1,5 +1,4 @@
 import pygame
-import gameObjects
 
 
 #--------------------------------------------
@@ -25,38 +24,17 @@ def inicializa_ventana():
 
 
 def process_input():
-    print("Se procesa Input del Usuario")
+    pass
 
 
 def update():
-    print("Aqui se actualiza las Imagenes")
+    pass
 
 
 def render():
-    print("Aqui va el Rendering")
-
     pygame.display.flip()
     
 
 def destroy_window():
     pygame.quit()
     quit()
-
-
-def main():
-    global game_is_running
-
-    game_is_running = inicializa_ventana()
-
-
-    while game_is_running:
-        process_input()
-        update()
-        render()
-           
-
-    destroy_window()
-
-
-if __name__ == "__main__":
-    main()

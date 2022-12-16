@@ -12,3 +12,22 @@ EX:
 		def get_date():
 			global date
 			date = '10-07-2001'
+
+pygame.local, si importamos este modulo de pygame, lo que va a ser es colocar un set de limite de cuantas constantes y
+funciones puede haber en el namespace del Script
+
+Antes de poder usar Pygame, se debe inicializar: pygame.init.	Inicializa todos los modulos de python para ti.
+No todos los modulos de python deben ser inicializados, pero esto automaticamente inicializa los que lo hagan.
+Tambien puedes inicializar cada modulo de Pygame por tu cuenta a mano, asi seria un ejemplo:
+	pygame.font.init()
+
+Tenga en cuenta que si hay un error al inicializar con "pygame.init()", fallará silenciosamente.
+Al inicializar manualmente módulos como este, cualquier error generará una excepción. 
+Cualquier módulo que deba inicializarse también tiene una función "get_init()", que devolverá true si el módulo
+se ha inicializado. Es seguro llamar a la función init() para cualquier módulo más de una vez.
+
+Los modulos que se inicializan tienen usualmente un funcion de quit() que limpiara y quitara el codigo (por ejemplo la ventana)
+No hay necesidad de llamar a las funciones de quit(), ya que pygame quitara todo una vez python haya finalizado de ejecutarse
+
+
+
