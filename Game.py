@@ -13,13 +13,14 @@ Surface = None
 
 def inicializa_ventana():    
     pygame.init()
-    pygame.display.init()
+   
 
-    global Window
-
-    Window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+    global Window, info
+    Window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), 0, 16)
     pygame.display.set_caption("Snake")
-    pygame.display.update()
+    info = pygame.display.Info()    
+    print(info)
+
     return Window
 
 
@@ -28,7 +29,7 @@ def process_input():
 
 
 def update():
-    pass
+    pygame.display.update()
 
 
 def render():

@@ -4,7 +4,6 @@ import pygame
 class gameObject(pygame.sprite.Sprite):
 
     def __init__(self, positionX, positionY, width, height, velocityX, velocityY):
-        #self.image = image
         self.positionX = positionX
         self.positionY = positionY
         self.width = width
