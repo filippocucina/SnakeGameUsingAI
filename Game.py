@@ -28,21 +28,21 @@ def inicializa_ventana():
     print(info)
     
 
+    #print(pygame.font.get_fonts())
+
+
     Background = pygame.Surface(Window.get_size())
     Background = Background.convert() #Operation to convert the Surface to a Single Pixel Format
     Background = Background.fill((250, 250, 250))
     
     
     #Displaying some text
-    Font = pygame.font.Font(None, 36)
-    Text = Font.render("Hello Pygame!", 1, (10, 10, 10))
-    Text_position = Text.get_rect()
-    Text_position.centerx = Background.get_rect().centerx
-    Background.blit(Text, Text_position)
+    Font = pygame.font.SysFont(None, 36)
+    Text = Font.render("Hello Pygame!", 1, (200, 200, 200))
+    #Text_position = Text.get_rect()
+    #Text_position.centerx = Background.get_rect().centerx
+    #Background.blit(Text, Text_position)
     
-
-    Window.blit(Background, (0,0))
-
 
     return Window
 
@@ -52,13 +52,12 @@ def process_input():
 
 
 def update():
+    pass
+
+
+def render():    
+    Window.blit(Text, (0,0))
     pygame.display.update()
-
-
-def render():
-    global Window, info, Background, Font, Text, Text_position
-
-
     pygame.display.flip()
     
 
