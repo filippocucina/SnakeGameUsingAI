@@ -29,5 +29,13 @@ se ha inicializado. Es seguro llamar a la función init() para cualquier módulo m
 Los modulos que se inicializan tienen usualmente un funcion de quit() que limpiara y quitara el codigo (por ejemplo la ventana)
 No hay necesidad de llamar a las funciones de quit(), ya que pygame quitara todo una vez python haya finalizado de ejecutarse
 
+The 3 main objects in Pygame: The Screen, The Background and the Text. Each of these objects can be created by first calling an
+in-built Pygame Object, and then modifying it to fit our needs. 
 
+The Background we create an object and then we convert ( pygame.Surface.convert() ) to a Single Pixel Format. This is more obviously
+necessary when we have several images and surfaces, all of different pixel formats. Summary: One Pixel Format for everything.
+By converting all the Surfaces, we can drastically speed up rendering times. 
+
+With Text, we require more than one object. First we define a Font object, which defines which font to use, and the size of the font
+Then we create a Text object, by using the render method that belongs 
 

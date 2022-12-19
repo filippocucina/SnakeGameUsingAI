@@ -1,7 +1,7 @@
-import pygame
+import pygame 
 
 
-class gameObject(pygame.sprite.Sprite):
+class gameObject():
 
     def __init__(self, positionX, positionY, width, height, velocityX, velocityY):
         self.positionX = positionX
