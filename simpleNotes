@@ -37,5 +37,8 @@ necessary when we have several images and surfaces, all of different pixel forma
 By converting all the Surfaces, we can drastically speed up rendering times. 
 
 With Text, we require more than one object. First we define a Font object, which defines which font to use, and the size of the font
-Then we create a Text object, by using the render method that belongs 
+Then we create a Text object, by using the render method that belongs.
+
+The term used for rendering objects is Blitting, which is where you copy the pixels belonging to said object onto the destination
+object. 
 

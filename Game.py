@@ -35,14 +35,10 @@ def inicializa_ventana():
     
     #Displaying some text
     Font = pygame.font.Font(None, 36)
-    Text = Font.render("Hello Pygame!", 1, (10, 10, 10))
-    Text_position = Text.get_rect()
-    Text_position.centerx = Background.get_rect().centerx
-    Background.blit(Text, Text_position)
+    Text = Font.render("Hello Pygame!", 1, (230, 230, 230))
+    #Text_position = Text.get_rect()
+    #Text_position.centerx = Background.get_rect().centerx
     
-
-    Window.blit(Background, (0,0))
-
 
     return Window
 
@@ -56,9 +52,8 @@ def update():
 
 
 def render():
-    global Window, info, Background, Font, Text, Text_position
-
-
+    Window.blit(Text, (0,0))
+    #Background.blit(Text, Text_position)
     pygame.display.flip()
     
 
