@@ -1,5 +1,5 @@
 import pygame
-
+from gameObjects import *
 
 #--------------------------------------------
 #Constantes
@@ -14,13 +14,13 @@ Text = None
 Text_position = None
 last_frame_time = 0
 FPS = 60
-FRAME_TARGET_TIME = (1000/FPS)
+FRAME_TARGET_TIME = (1000/FPS)  
 #--------------------------------------------
 
 
 def inicializa_ventana():    
     pygame.init()
-    
+    #More code need to be added!
 
     global Window, info, Background, Font, Text, Text_position
 
