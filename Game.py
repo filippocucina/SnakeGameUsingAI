@@ -12,6 +12,9 @@ Background = None
 Font = None
 Text = None
 Text_position = None
+last_frame_time = 0
+FPS = 60
+FRAME_TARGET_TIME = (1000/FPS)
 #--------------------------------------------
 
 
@@ -41,6 +44,10 @@ def inicializa_ventana():
     
 
     return Window
+
+
+def setup():
+    pass
 
 
 def process_input():

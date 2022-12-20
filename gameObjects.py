@@ -1,7 +1,7 @@
 import pygame 
 
 
-class gameObject():
+class gameObject(pygame.draw.rect):
 
     def __init__(self, positionX, positionY, width, height, velocityX, velocityY):
         self.positionX = positionX

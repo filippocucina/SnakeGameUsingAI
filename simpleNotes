@@ -40,5 +40,10 @@ With Text, we require more than one object. First we define a Font object, which
 Then we create a Text object, by using the render method that belongs.
 
 The term used for rendering objects is Blitting, which is where you copy the pixels belonging to said object onto the destination
-object. 
+object. So to render the background object, you blit it onto the screen. Blitting is one of the slowest operation in any game,
+so you need to be careful not to blit too much onto the screen in every frame. If you have a background image, and a ball flying
+around the screen, then you could blit the background and then the ball in every frame, which would cover up the ball's previous
+position and then render the new ball, but this would be pretty slow. A better solution is to blit the background onto the area
+that the ball previously occupied, which can be found by the ball's previous rectangle, and then blitting the ball, so that 
+you are only blitting two small areas.
 

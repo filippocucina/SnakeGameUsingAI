@@ -5,7 +5,11 @@ import game
 def main():
     global game_is_running
 
+
     game_is_running = game.inicializa_ventana()
+
+
+    game.setup()
 
 
     while game_is_running:
