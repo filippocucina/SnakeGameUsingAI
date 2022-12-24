@@ -3,34 +3,44 @@ from game import *
 global game
 
 
-class game_objects(pygame.draw.rect):
+class Entity(pygame.draw.rect):
 
-    def __init__(self, positionX, positionY, width, height, color, velocityX, velocityY):
-        self.rect = pygame.draw.rect()
+    def __init__(self, positionX, positionY, width, height):
         self.positionX = positionX
         self.positionY = positionY
-        self.width = width
-        self.height = height
-        self.color = color
-        self.velocityX = velocityX
-        self.velocityY = velocityY
+        self.width = int(width)
+        self.height = int(height)
+        
 
+class Snake(Entity):
 
-    def draw_object(self):
-        self.rect = pygame.draw.rect(game.Surface, (255,255,255))
+    def __init__(self):
+        
+        Entity.__init__(self, self.positionX, self.positionT, self.width, self.height)
+        pass
+    
+    
+    def draw_snake(self):
+        pass
+    
+    
+    def expand_snake(self):
+        pass
 
-     
-    def increment_object(self):
+    
+    def destroy_snake(self):
         pass
 
 
-    def random_position(self):
+class Apple(Entity):
+
+    def __init__(self):
         pass
 
 
-    def destroy_object(self):
+    def draw_apple(self):
         pass
 
 
-#snakeAI = game_objects(400, 300, 40, 20, 10, 10)
-#apple = game_objects(800, 600, 20, 20, 0, 0)
+    def destroy_apple(self):
+        pass

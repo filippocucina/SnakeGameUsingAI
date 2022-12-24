@@ -1,6 +1,7 @@
 import pygame
 from gameObjects import *
 
+
 #--------------------------------------------
 #Constantes
 game_is_running = False
