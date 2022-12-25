@@ -14,13 +14,15 @@ class Entity(pygame.draw.rect):
 
 class Snake(Entity):
 
-    def __init__(self):
-        
-        Entity.__init__(self, self.positionX, self.positionT, self.width, self.height)
-        pass
+    def __init__(self, color_red, color_green, color_blue):
+        Entity.__init__(self, self.positionX, self.positionY, self.width, self.height)
+        self.color_red = int(color_red)
+        self.color_green = int(color_green)
+        self.color_blue = int(color_blue)
     
     
     def draw_snake(self):
+        pygame.draw.rect(Window, (self.color_red, self.color_green, self.color_blue), )
         pass
     
     
