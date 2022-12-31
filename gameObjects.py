@@ -1,18 +1,18 @@
 import pygame 
-from game import *
+from game import Window
 global game
 
 
 class Entity(pygame.draw.rect):
 
     def __init__(self, positionX, positionY, width, height):
-        self.positionX = positionX
-        self.positionY = positionY
+        self.positionX = int(positionX)
+        self.positionY = int(positionY)
         self.width = int(width)
         self.height = int(height)
         
 
-class Snake(Entity):
+class Snake(Entity, pygame.draw.rect()):
 
     def __init__(self, color_red, color_green, color_blue):
         Entity.__init__(self, self.positionX, self.positionY, self.width, self.height)
@@ -22,8 +22,7 @@ class Snake(Entity):
     
     
     def render_snake(self):
-        pygame.draw.rect(Window, (self.color_red, self.color_green, self.color_blue), self.positionX, self.positionY, self.width, self.height)
-        pass
+        return pygame.draw.rect(Window, (self.color_red, self.color_green, self.color_blue), self.positionX, self.positionY, self.width, self.height)
     
     
     def expand_snake(self):
@@ -31,11 +30,10 @@ class Snake(Entity):
 
     
     def destroy_snake(self):
-        self.kill()
         pass
 
 
-class Apple(Entity):
+class Apple(Entity, pygame.draw.rect):
 
     def __init__(self, color_red, color_green, color_blue):
         Entity.__init__(self, self.positionX, self.positionY, self.width, self.height)
@@ -56,3 +54,7 @@ class Apple(Entity):
 
     def destroy_apple(self):
         pass
+
+
+snake = Snake(500, 500, 50, 50, 255, 255, 255)
+apple = Apple(800, 700, 25, 25, 255, 0, 0)

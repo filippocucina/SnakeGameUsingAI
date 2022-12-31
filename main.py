@@ -6,7 +6,7 @@ def main():
     global game_is_running
 
 
-    game_is_running = game.inicializa_ventana()
+    game_is_running = game.initialized_window()
 
 
     game.setup()

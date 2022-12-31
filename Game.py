@@ -1,9 +1,9 @@
 import pygame
-from gameObjects import *
+from game.gameObjects import *
 
 
 #--------------------------------------------
-#Constantes
+#Constants
 game_is_running = False
 WINDOW_WIDTH = 1100
 WINDOW_HEIGHT = 700
@@ -19,7 +19,7 @@ FRAME_TARGET_TIME = (1000/FPS)
 #--------------------------------------------
 
 
-def inicializa_ventana():    
+def initialized_window():    
     pygame.init()
     #More code need to be added!
 
@@ -48,7 +48,8 @@ def inicializa_ventana():
 
 
 def setup():
-    pass
+    gameObjects.snake.render_snake()
+    apple.render_apple()
 
 
 def process_input():
