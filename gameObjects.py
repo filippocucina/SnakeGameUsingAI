@@ -3,6 +3,8 @@ from game import Window
 global game
 
 
+#Por modificar el codigo del juego OOP
+
 class Entity(pygame.draw.rect):
 
     def __init__(self, positionX, positionY, width, height):
