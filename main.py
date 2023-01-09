@@ -1,63 +1,4 @@
 import pygame
-from gameObjects import *
-import game
-
-
-class Entity(pygame.draw.rect):
-
-    def __init__(self, positionX, positionY, width, height):
-        self.positionX = int(positionX)
-        self.positionY = int(positionY)
-        self.width = int(width)
-        self.height = int(height)
-        
-
-class Snake(Entity, pygame.draw.rect()):
-
-    def __init__(self, color_red, color_green, color_blue):
-        Entity.__init__(self, self.positionX, self.positionY, self.width, self.height)
-        self.color_red = int(color_red)
-        self.color_green = int(color_green)
-        self.color_blue = int(color_blue)
-    
-    
-    def render_snake(self):
-        return pygame.draw.rect(Window, (self.color_red, self.color_green, self.color_blue), self.positionX, self.positionY, self.width, self.height)
-    
-    
-    def expand_snake(self):
-        pass
-
-    
-    def destroy_snake(self):
-        pass
-
-
-class Apple(Entity, pygame.draw.rect):
-
-    def __init__(self, color_red, color_green, color_blue):
-        Entity.__init__(self, self.positionX, self.positionY, self.width, self.height)
-        self.color_red = int(color_red)
-        self.color_green = int(color_green)
-        self.color_blue = int(color_blue)
-        pass
-
-
-    def render_apple(self):
-        pygame.draw.rect(Window, (self.color_red, self.color_green, self.color_blue), self.positionX, self.positionY, self.width, self.height)
-        pass
-
-
-    def random_position(self):
-        pass
-
-
-    def destroy_apple(self):
-        pass
-
-
-snake = Snake(500, 500, 50, 50, 255, 255, 255)
-apple = Apple(800, 700, 25, 25, 255, 0, 0)
 
 
 #--------------------------------------------
@@ -75,6 +16,19 @@ last_frame_time = 0
 FPS = 60
 FRAME_TARGET_TIME = (1000/FPS)  
 #--------------------------------------------
+
+
+class Entity():
+    
+    def __init__(self, width, height, x, y):
+        self.width = int(width)
+        self.height = int(height)
+        self.x = int(x)
+        self.y = int(y)
+
+
+snake = Entity(20, 20, 0, 0)
+apple = Entity(20, 20, 0, 0)
 
 
 def initialized_window():    
@@ -106,8 +60,13 @@ def initialized_window():
 
 
 def setup():
-    gameObjects.snake.render_snake()
-    apple.render_apple()
+    global snake, apple
+    #snake = pygame.draw.rect()
+    
+
+    snake = pygame.draw.rect(Window, (255,0,0), pygame.Rect(300, 300, 90, 20))
+    apple = pygame.draw.rect(Window, (148, 0, 211), pygame.Rect(700, 300, 20, 20))
+    pass
 
 
 def process_input():
@@ -133,19 +92,19 @@ def main():
     global game_is_running
 
 
-    game_is_running = game.initialized_window()
+    game_is_running = initialized_window()
 
 
-    game.setup()
+    setup()
 
 
     while game_is_running:
-        game.process_input()
-        game.update()
-        game.render()
+        process_input()
+        update()
+        render()
            
 
-    game.destroy_window()
+    destroy_window()
 
 
 if __name__ == "__main__":
