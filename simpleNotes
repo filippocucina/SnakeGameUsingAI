@@ -47,3 +47,26 @@ position and then render the new ball, but this would be pretty slow. A better s
 that the ball previously occupied, which can be found by the ball's previous rectangle, and then blitting the ball, so that 
 you are only blitting two small areas.
 
+
+Pygame handles all its event messaging through an event queue. The routines in this module help you manage that event queue. 
+The input queue is heavily dependent on the pygame.display pygame module to control the display window and screen module. 
+If the display has not been initialized and a video mode not set, the event queue may not work properly.
+
+The event queue has an upper limit on the number of events it can hold. When the queue becomes full new events are quietly dropped. 
+To prevent lost events, especially input events which signal a quit command, your program must handle events every frame 
+(with pygame.event.get(), pygame.event.pump(), pygame.event.wait(), pygame.event.peek() or pygame.event.clear()) and process them. 
+Not handling events may cause your system to decide your program has locked up. To speed up queue processing use 
+pygame.event.set_blocked()control which events are allowed on the queue to limit which events get queued.
+
+To get the state of various input devices, you can forego the event queue and access the input devices directly with their appropriate 
+modules: pygame.mousepygame module to work with the mouse, pygame.keypygame module to work with the keyboard, and pygame.joystickPygame 
+module for interacting with joysticks, gamepads, and trackballs..
+
+If you use this method, remember that pygame requires some form of communication with the system window manager and other parts of the 
+platform. To keep pygame in sync with the system, you will need to call pygame.event.pump() internally process pygame event handlers to 
+keep everything current. Usually, this should be called once per game loop. Note: Joysticks will not send any events until the device 
+has been initialized.
+
+The event queue also offers some simple filtering which can slightly help performance by blocking certain event types from the queue. 
+Use pygame.event.set_allowed()control which events are allowed on the queue and pygame.event.set_blocked()control which events are 
+allowed on the queue to change this filtering. By default, all event types can be placed on the queue.

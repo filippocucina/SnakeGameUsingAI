@@ -1,11 +1,12 @@
+from cgi import print_form
 import pygame
 
 
 #--------------------------------------------
 #Constants
 game_is_running = False
-WINDOW_WIDTH = 1100
-WINDOW_HEIGHT = 700
+WINDOW_WIDTH = 1152
+WINDOW_HEIGHT = 864
 Window = None
 Surface = None
 Background = None
@@ -18,31 +19,35 @@ FRAME_TARGET_TIME = (1000/FPS)
 #--------------------------------------------
 
 
-class Entity():
-    
-    def __init__(self, width, height, x, y):
-        self.width = int(width)
-        self.height = int(height)
-        self.x = int(x)
-        self.y = int(y)
-
-
-snake = Entity(20, 20, 0, 0)
-apple = Entity(20, 20, 0, 0)
-
-
 def initialized_window():    
     pygame.init()
     #More code need to be added!
 
-    global Window, info, Background, Font, Text, Text_position
+    global Window, info, Background, Font, Text, Text_position, backend_display, windowing_system, desktop_sizes, get_surface_game
+    global list_modes_game, depth_window, modes
 
     
     Window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), 0, 16)
     pygame.display.set_caption("Snake")
     info = pygame.display.Info()    
+    backend_display = pygame.display.get_driver()
+    windowing_system = pygame.display.get_wm_info()
+    desktop_sizes = pygame.display.get_desktop_sizes()
+    get_surface_game = pygame.display.get_surface()
+    list_modes_game = pygame.display.list_modes()
+    depth_window = pygame.display.mode_ok((128,128), 0, 32)
+    modes = pygame.display.list_modes()
+
+
     print(info)
-    
+    print(backend_display)
+    print(windowing_system)
+    print(desktop_sizes)
+    print(get_surface_game)
+    print(list_modes_game)
+    print(depth_window)
+    print(modes)
+
 
     Background = pygame.Surface(Window.get_size())
     Background = Background.convert() #Operation to convert the Surface to a Single Pixel Format
@@ -74,7 +79,8 @@ def process_input():
 
 
 def update():
-    pygame.display.update()
+    #pygame.display.update()
+    pass
 
 
 def render():
