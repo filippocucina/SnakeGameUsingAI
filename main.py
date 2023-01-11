@@ -1,4 +1,3 @@
-from cgi import print_form
 import pygame
 
 
@@ -75,11 +74,17 @@ def setup():
 
 
 def process_input():
+    global user_event, game_is_running
+        
+
+
     pass
 
 
 def update():
     #pygame.display.update()
+
+    
     pass
 
 
