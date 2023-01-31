@@ -18,35 +18,51 @@ FRAME_TARGET_TIME = (1000/FPS)
 #--------------------------------------------
 
 
-def initialized_window():    
-    pygame.init()
-    #More code need to be added!
+class Entity(pygame.rect.Rect):
+    def __init__(self, color, size, x, y):
+        self.rect = pygame.rect.Rect(Window, color, size, x, y)
+        self.color = color
+        self.size = size
+        self.x = x
+        self.y = y
 
-    global Window, info, Background, Font, Text, Text_position, backend_display, windowing_system, desktop_sizes, get_surface_game
-    global list_modes_game, depth_window, modes
+    def draw(self):
+        return self.rect
+        
+snake = Entity((200, 0, 0), 30, 30, 30)
+
+class Snake(Entity):
+    def __init__(self):
+        super().__init__()
+        pass
+
+    def draw():
+        pass
+
+#snake = Snake(())
+
+
+class Apple(Entity):
+    def __init__():
+        pass
+
+    def draw():
+        pass
+
+
+def initialized_window(): 
+    global Window, info, Background, Font, Text, Text_position
+
+    try:
+        pygame.init()
+        print("Pygame has started. Enjoy this AI Model")
+    except:
+        print("Pygame does not work")
 
     
     Window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), 0, 16)
     pygame.display.set_caption("Snake")
-    info = pygame.display.Info()    
-    backend_display = pygame.display.get_driver()
-    windowing_system = pygame.display.get_wm_info()
-    desktop_sizes = pygame.display.get_desktop_sizes()
-    get_surface_game = pygame.display.get_surface()
-    list_modes_game = pygame.display.list_modes()
-    depth_window = pygame.display.mode_ok((128,128), 0, 32)
-    modes = pygame.display.list_modes()
-
-
-    print(info)
-    print(backend_display)
-    print(windowing_system)
-    print(desktop_sizes)
-    print(get_surface_game)
-    print(list_modes_game)
-    print(depth_window)
-    print(modes)
-
+    
 
     Background = pygame.Surface(Window.get_size())
     Background = Background.convert() #Operation to convert the Surface to a Single Pixel Format
@@ -55,21 +71,17 @@ def initialized_window():
     
     #Displaying some text
     Font = pygame.font.Font(None, 36)
-    Text = Font.render("Hello Pygame!", 1, (230, 230, 230))
-    #Text_position = Text.get_rect()
-    #Text_position.centerx = Background.get_rect().centerx
+    Text = Font.render("AI plays Snake Game", 1, (230, 230, 230))
     
 
     return Window
 
 
 def setup():
-    global snake, apple
-    #snake = pygame.draw.rect()
+    
     
 
-    snake = pygame.draw.rect(Window, (255,0,0), pygame.Rect(300, 300, 90, 20))
-    apple = pygame.draw.rect(Window, (148, 0, 211), pygame.Rect(700, 300, 20, 20))
+    
     pass
 
 
@@ -82,7 +94,7 @@ def process_input():
 
 
 def update():
-    #pygame.display.update()
+    
 
     
     pass
