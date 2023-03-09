@@ -14,52 +14,40 @@ Text = None
 Text_position = None
 last_frame_time = 0
 FPS = 60
-FRAME_TARGET_TIME = (1000/FPS)  
+FRAME_TARGET_TIME = (1000/FPS)
+BLUE = (0,0,255)
+SIZE_SNAKE = 30
 #--------------------------------------------
 
 
 class Entity(pygame.rect.Rect):
-    def __init__(self, color, size, x, y):
-        self.rect = pygame.rect.Rect(Window, color, size, x, y)
+    def __init__(self, command, display, color, heigth, width, x, y):
+        self.command = command
+        self.heigth = int(heigth)
+        self.width = int(width)
+        self.display = display
         self.color = color
-        self.size = size
-        self.x = x
-        self.y = y
-
-    def draw(self):
-        return self.rect
+        self.x = int(x)
+        self.y = int(y)
         
-snake = Entity((200, 0, 0), 30, 30, 30)
 
-class Snake(Entity):
-    def __init__(self):
-        super().__init__()
-        pass
-
-    def draw():
-        pass
-
-#snake = Snake(())
-
-
-class Apple(Entity):
-    def __init__():
-        pass
-
-    def draw():
-        pass
+    def draw_rect(self):
+        return self.command(self.display, self.color, self.heigth, self.width, self.x, self.y)
+    
+#snake = Entity(pygame.draw.rect(Window), Window, BLUE, 80, 40, 300, 300)
 
 
 def initialized_window(): 
-    global Window, info, Background, Font, Text, Text_position
+    global Window, info, Background, Font, Text, Text_position, snake
 
     try:
         pygame.init()
         print("Pygame has started. Enjoy this AI Model")
     except:
-        print("Pygame does not work")
+        pygame.set_error()
+        pygame.error("Pygame does not work")
+        
 
-    
     Window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), 0, 16)
     pygame.display.set_caption("Snake")
     
@@ -73,14 +61,15 @@ def initialized_window():
     Font = pygame.font.Font(None, 36)
     Text = Font.render("AI plays Snake Game", 1, (230, 230, 230))
     
+    snake = Entity(pygame.draw.rect, Window, BLUE, 80, 40, 700, 300)
+    #snake = Entity(pygame.draw.rect(Window, BLUE, pygame.Rect(30,30,70,70)), Window, BLUE, 80, 40, 300, 300)
 
     return Window
 
 
 def setup():
-    
-    
-
+    global snake
+    snake.draw_rect()
     
     pass
 
