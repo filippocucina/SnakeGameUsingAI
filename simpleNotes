@@ -70,3 +70,18 @@ has been initialized.
 The event queue also offers some simple filtering which can slightly help performance by blocking certain event types from the queue. 
 Use pygame.event.set_allowed()control which events are allowed on the queue and pygame.event.set_blocked()control which events are 
 allowed on the queue to change this filtering. By default, all event types can be placed on the queue.
+
+You can put functions within the def __init__() function. Example:
+
+def __init__(self, window):
+	pygame.rect.Rect(Information_to_diplay)
+	self.window
+
+
+Estos archivos .json se encuentran en una carpeta oculta llamada .vs en la carpeta raíz del código base. Visual Studio crea los archivos 
+tasks.vs.json y launch.vs.json según sea necesario cuando se elija Configurar tareas o Configuración de depuración e inicio en un archivo 
+o una carpeta del Explorador de soluciones.Estos archivos .json están ocultos porque los usuarios habitualmente no desean insertarlos en 
+el control de código fuente. Sin embargo, si desea poder comprobarlos en el control de código fuente, arrastre los archivos a la raíz del 
+código base mediante el sistema de archivos, donde estarán visibles en el Explorador de soluciones y en el control de código fuente.
+
+The flags argument is a collection of additional options. The depth argument represents the number of bits to use for color.

@@ -1,123 +1,81 @@
 import pygame
-
-
-#--------------------------------------------
-#Constants
+window_game = None
 game_is_running = False
-WINDOW_WIDTH = 1152
-WINDOW_HEIGHT = 864
-Window = None
-Surface = None
-Background = None
-Font = None
-Text = None
-Text_position = None
-last_frame_time = 0
-FPS = 60
-FRAME_TARGET_TIME = (1000/FPS)
-BLUE = (0,0,255)
-SIZE_SNAKE = 30
-#--------------------------------------------
+background_game = None
+
+class Game():
+    def __init__(self, window, window_heigth, window_width, background, last_frame_time):
+        self.window = window
+        self.window_heigth = int(window_heigth)
+        self.window_width = int(window_width)
+        self.background = background
+        self.last_frame_time = int(last_frame_time)
+
+    def initialized_window(self):
+        try:
+            pygame.init()
+            print("Pygame has started. Enjoy this AI Model")
+        except:
+            pygame.error("Pygame does not work!")
+
+        self.window = pygame.display.set_mode((self.window_width, self.window_heigth), 0, 0, 0, 0,)
+        pygame.display.set_caption("Snake Game")
 
 
-class Entity(pygame.rect.Rect):
-    def __init__(self, command, display, color, heigth, width, x, y):
-        self.command = command
-        self.heigth = int(heigth)
-        self.width = int(width)
-        self.display = display
-        self.color = color
-        self.x = int(x)
-        self.y = int(y)
-        
 
-    def draw_rect(self):
-        return self.command(self.display, self.color, self.heigth, self.width, self.x, self.y)
-    
-#snake = Entity(pygame.draw.rect(Window), Window, BLUE, 80, 40, 300, 300)
+        return self.window
 
 
-def initialized_window(): 
-    global Window, info, Background, Font, Text, Text_position, snake
-
-    try:
-        pygame.init()
-        print("Pygame has started. Enjoy this AI Model")
-    except:
-        pygame.set_error()
-        pygame.error("Pygame does not work")
-        
-
-    Window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), 0, 16)
-    pygame.display.set_caption("Snake")
+    def setup(self):
+        pass
     
 
-    Background = pygame.Surface(Window.get_size())
-    Background = Background.convert() #Operation to convert the Surface to a Single Pixel Format
-    Background = Background.fill((250, 250, 250))
-    
-    
-    #Displaying some text
-    Font = pygame.font.Font(None, 36)
-    Text = Font.render("AI plays Snake Game", 1, (230, 230, 230))
-    
-    snake = Entity(pygame.draw.rect, Window, BLUE, 80, 40, 700, 300)
-    #snake = Entity(pygame.draw.rect(Window, BLUE, pygame.Rect(30,30,70,70)), Window, BLUE, 80, 40, 300, 300)
-
-    return Window
+    def process_input(self):
+        pass
 
 
-def setup():
-    global snake
-    snake.draw_rect()
-    
-    pass
+    def update(self):
+        pass
 
 
-def process_input():
-    global user_event, game_is_running
-        
+    def render(self):
+        pygame.display.flip()
+        pass
+
+
+    def destroy_window(self):
+        pygame.display.quit()
+        pygame.quit()
+        quit()
 
 
     pass
 
+class Entity(Game):
+    def __init__(self, entity_width, entity_heigth, entity_x, entity_y, velocity_x, velocity_y):
+        self.entity_width = int(entity_width)
+        self.entity_heigth = int(entity_heigth)
+        self.entity_x = int(entity_x)
+        self.entity_y = int(entity_y)
 
-def update():
-    
+    def render():
 
-    
-    pass
+        pass
 
-
-def render():
-    Window.blit(Text, (0,0))
-    #Background.blit(Text, Text_position)
-    pygame.display.flip()
-    
-
-def destroy_window():
-    pygame.quit()
-    quit()
-
+game = Game(window_game, 1020, 1920, background_game, 0)
 
 def main():
-    global game_is_running
-
-
-    game_is_running = initialized_window()
-
-
-    setup()
-
+    game_is_running = game.initialized_window()
+    
+    game.setup()
 
     while game_is_running:
-        process_input()
-        update()
-        render()
-           
+        game.process_input()
+        game.update()
+        game.render()
 
-    destroy_window()
 
+    game.destroy_window()
 
 if __name__ == "__main__":
     main()
