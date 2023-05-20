@@ -3,6 +3,7 @@ window_game = None
 game_is_running = False
 background_game = None
 
+ 
 class Game():
     def __init__(self, window, window_heigth, window_width, background, last_frame_time):
         self.window = window
@@ -12,23 +13,23 @@ class Game():
         self.last_frame_time = int(last_frame_time)
 
     def initialized_window(self):
-        try:
+       try:
             pygame.init()
             print("Pygame has started. Enjoy this AI Model")
-        except:
-            pygame.error("Pygame does not work!")
+       except:
+            pygame.error("The Initialized_window does not work!")
 
-        self.window = pygame.display.set_mode((self.window_width, self.window_heigth), 0, 0, 0, 0,)
-        pygame.display.set_caption("Snake Game")
+       self.window = pygame.display.set_mode((self.window_width, self.window_heigth), 0, 0, 0, 0,)
+       pygame.display.set_caption("Snake Game")
 
 
 
-        return self.window
+       return self.window
 
 
     def setup(self):
         pass
-    
+   
 
     def process_input(self):
         pass
@@ -48,19 +49,20 @@ class Game():
         pygame.quit()
         quit()
 
-
+        
     pass
 
-class Entity(Game):
-    def __init__(self, entity_width, entity_heigth, entity_x, entity_y, velocity_x, velocity_y):
-        self.entity_width = int(entity_width)
-        self.entity_heigth = int(entity_heigth)
-        self.entity_x = int(entity_x)
-        self.entity_y = int(entity_y)
+class Snake():
+    def __init__(self, x, y, height, width):
+        self.x = x
+        self.y = y
+        self.height = height
+        self.width = width
 
-    def render():
+    def draw():
+        pygame.draw.rect(Game.window, (0, 0, 5), (Snake.x, Snake.y, Snake.width, Snake.heigth), (0))
 
-        pass
+
 
 game = Game(window_game, 1020, 1920, background_game, 0)
 
@@ -79,3 +81,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+     
