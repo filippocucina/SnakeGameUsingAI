@@ -1,74 +1,95 @@
 import pygame
-window_game = None
-game_is_running = False
-background_game = None
 
- 
-class Game():
-    def __init__(self, window, window_heigth, window_width, background, last_frame_time):
-        self.window = window
-        self.window_heigth = int(window_heigth)
-        self.window_width = int(window_width)
-        self.background = background
-        self.last_frame_time = int(last_frame_time)
+game_is_running = False
+
+
+class Game:
+
+    def __init__(self, width, heigth):
+        self.width = width
+        self.heigth = heigth
+        self.window = pygame.display.set_mode(self.width, self.heigth, 0, 0, 0)
 
     def initialized_window(self):
-       try:
+        try:
             pygame.init()
             print("Pygame has started. Enjoy this AI Model")
-       except:
+        except:
             pygame.error("The Initialized_window does not work!")
 
-       self.window = pygame.display.set_mode((self.window_width, self.window_heigth), 0, 0, 0, 0,)
-       pygame.display.set_caption("Snake Game")
+        pygame.display.set_caption("Snake Game")
 
 
+    def setup():
 
-       return self.window
-
-
-    def setup(self):
-        pass
-   
-
-    def process_input(self):
         pass
 
-
-    def update(self):
+    def process_input():
+        #inherited class will execute the code of this function
         pass
 
+    def update():
+        #inherited class will execute the code of this function
+        pass
 
-    def render(self):
+    def render():
         pygame.display.flip()
         pass
 
-
-    def destroy_window(self):
+    def destroy_window():
         pygame.display.quit()
         pygame.quit()
         quit()
 
+
+class Snake(Game):
+
+    def __init__(self, x, y, height, width, color):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.color = color
+
+    def setup_snake(self):
+        super().setup()
+        pass
+
+    def render_snake(self):
+        pygame.draw.rect(Game.window, self.color, self.rect)
+        super().render()
         
+
+    def expand_snake(self):
+        pass
+
     pass
 
-class Snake():
-    def __init__(self, x, y, height, width):
-        self.x = x
-        self.y = y
-        self.height = height
-        self.width = width
+class Apple(Game):
 
-    def draw():
-        pygame.draw.rect(Game.window, (0, 0, 5), (Snake.x, Snake.y, Snake.width, Snake.heigth), (0))
+    def __init__(self, x, y, height, width, color):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.color = color
 
+    def setup_apple():
+        super().setup()
+        pass
 
+    def render_apple(self):
+        pygame.draw.rect(Game.window, self.color, self.rect)
+        super().render()
+        
 
-game = Game(window_game, 1020, 1920, background_game, 0)
+    def change_position():
+        pass
+
+    pass
+
+game = Game(800, 600)
+snake = Snake(500, 500, 50, 50, (0, 0, 255))
+apple = Apple(1000, 1000, 20, 30, (100, 50, 200))
 
 def main():
+
     game_is_running = game.initialized_window()
-    
+
     game.setup()
 
     while game_is_running:
