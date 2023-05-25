@@ -5,38 +5,38 @@ game_is_running = False
 
 class Game:
 
-    def __init__(self, width, heigth):
-        self.width = width
-        self.heigth = heigth
-        self.window = pygame.display.set_mode(self.width, self.heigth, 0, 0, 0)
+    def __init__(self):
+        self.width = 1920
+        self.heigth = 1020
+        self.window = pygame.display.set_mode((self.width, self.heigth))
+        pygame.display.set_caption("Snake Game")
 
     def initialized_window(self):
         try:
             pygame.init()
             print("Pygame has started. Enjoy this AI Model")
+            self.window()
         except:
             pygame.error("The Initialized_window does not work!")
 
-        pygame.display.set_caption("Snake Game")
 
-
-    def setup():
+    def setup(self):
 
         pass
 
-    def process_input():
+    def process_input(self):
         #inherited class will execute the code of this function
         pass
 
-    def update():
+    def update(self):
         #inherited class will execute the code of this function
         pass
 
-    def render():
+    def render(self):
         pygame.display.flip()
         pass
 
-    def destroy_window():
+    def destroy_window(self):
         pygame.display.quit()
         pygame.quit()
         quit()
@@ -68,7 +68,7 @@ class Apple(Game):
         self.rect = pygame.Rect(x, y, width, height)
         self.color = color
 
-    def setup_apple():
+    def setup_apple(self):
         super().setup()
         pass
 
@@ -77,12 +77,12 @@ class Apple(Game):
         super().render()
         
 
-    def change_position():
+    def change_position(self):
         pass
 
     pass
 
-game = Game(800, 600)
+game = Game()
 snake = Snake(500, 500, 50, 50, (0, 0, 255))
 apple = Apple(1000, 1000, 20, 30, (100, 50, 200))
 
